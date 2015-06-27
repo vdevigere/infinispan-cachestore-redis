@@ -19,7 +19,7 @@ class RedisStoreConfigurationBuilder(builder: PersistenceConfigurationBuilder)
   var password: String = null
   var database: Int = 0
   var clientName: String = null
-  var url: URI = null
+  var dbURL: URI = null
 
   override def create(): RedisStoreConfiguration = new RedisStoreConfiguration(attributes.protect(), async.create(), singletonStore.create(), this)
 
@@ -32,12 +32,12 @@ class RedisStoreConfigurationBuilder(builder: PersistenceConfigurationBuilder)
     this.password = template.password
     this.database = template.database
     this.clientName = template.clientName
-    this.url = template.url
+    this.dbURL = template.dbURL
     self
   }
 
   def url(redisURI: URI) = {
-    this.url = redisURI
+    this.dbURL = redisURI
     this.host = redisURI.getHost
     this.port = redisURI.getPort
     this.timeout = Protocol.DEFAULT_TIMEOUT

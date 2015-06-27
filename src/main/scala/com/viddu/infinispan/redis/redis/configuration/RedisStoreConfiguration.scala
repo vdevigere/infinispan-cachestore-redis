@@ -17,5 +17,5 @@ class RedisStoreConfiguration(attributes: AttributeSet, async: AsyncStoreConfigu
   val password = builder.password
   val database = builder.database
   val clientName = builder.clientName
-  val url = builder.url
+  val dbURL = builder.dbURL
 }
